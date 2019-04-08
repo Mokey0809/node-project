@@ -1,0 +1,65 @@
+doctype html
+html
+  head
+    title Pizza
+    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet' href='/css/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  body
+    nav.navbar.navbar-inverse
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/') Home
+            if user
+              li
+                a(href='/orders/add') Order Now
+            if user
+              li
+                a(href='/orders/all') History
+          ul.nav.navbar-nav.navbar-right
+            if user
+              li 
+                a(href='/users/logout') Logout
+            else
+              li
+                a(href='/users/register') Register
+              li
+                a(href='/users/login') Login
+    .wrapper
+      .container-fluid
+        != messages('message', locals)
+        if errors
+          each error, i in errors
+            div(class="alert alert-danger") #{error.msg}
+        block content
+        br
+        br
+        br
+      footer.page-footer.font-small.special-color-dark.pt-4
+        .container
+          ul.list-unstyled.list-inline.text-center
+            li.list-inline-item
+              a.btn-floating.btn-tw.mx-1
+                a.fa.fa-facebook(href='https://www.facebook.com/')
+            li.list-inline-item
+              a.btn-floating.btn-tw.mx-1
+                a.fa.fa-twitter(href='https://twitter.com/?lang=en')
+            li.list-inline-item
+              a.btn-floating.btn-tw.mx-1
+                a.fa.fa-instagram(href='https://www.instagram.com/?hl=en')
+
+        .footer-copyright.text-center.py-3
+          | &copy; 2018 Copyright: Pizza Family Restaurant. All rights reserved
+
+
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/js/main.js')  

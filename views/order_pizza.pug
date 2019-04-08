@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1.orders Order Now
+
+  .row
+    .col-sm-6
+      .card
+        img.card-img-top(src="https://eatcaulipower.com/sites/default/files/product-images/Pizza-ThreeCheese_1.png", width='100%', height='100%', alt='Cheese Pizza')
+        hr
+        .card-body
+          h4.card-title Cheese Pizza
+          p.card-text Price: $10.00
+          hr
+          form(method='POST', action='/orders/add/cheese')
+            input.btn.btn-primary(type='submit', value='Order')
+
+    .col-sm-6
+      .card
+        img.card-img-top(src="http://www.hammockpizza.co/image/cache/pizza/pepperoni%20pizza-800x800.png", width='100%', height='100%', alt='Pepperoni Pizza')
+        hr
+        .card-body
+          h4.card-title Pepperoni Pizza
+          p.card-text Price: $12.00
+          hr
+          form(method='POST', action='/orders/add/pepperoni')
+            input.btn.btn-primary(type='submit', value='Order')
+
+
+
+
+

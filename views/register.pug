@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .jumbotron
+    h1.register Register
+    form(method='POST', action='/users/register')
+      #form-group
+        label Email:
+        input.form-control(name='email', type='email')
+      #form-group
+        label Password:
+        input.form-control(name='password', type='password')
+      #form-group
+        label Confirm:
+        input.form-control(name='password_confirm', type='password')
+      br
+      input.btn.btn-primary(type='submit', value='Register')
